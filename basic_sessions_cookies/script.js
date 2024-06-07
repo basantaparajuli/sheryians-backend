@@ -17,6 +17,8 @@ const PORT = 3000;
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+// basically when we fill up forms or any of the login info to the browser the plain text is converted to blob -> encoded non readable data then the server needs to change it to the plain text again to read so that these two is used... express.json() blobs the data and hence the express.urlencoded -> changes it to the readable again....!
+
 app.get("/", (req, res) => {
   res.send("This is a default route!");
 });
